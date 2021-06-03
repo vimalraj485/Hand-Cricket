@@ -21,10 +21,12 @@ public class Round {
 		return roundNo;
 	}
 	
+
+	
 	int execute = 0;
 	int target = 91;
-	
-	public void P1_Bats() {
+
+	public void Batting(Player P1, Player P2) {
 		P1.score=0;
 		
 		while(execute<15) {
@@ -46,44 +48,12 @@ public class Round {
 			if(P1.score>target) {
 				break;
 			}
-			
-			
+
 			}
 		
 		execute = 0;
 	}
-	
-	public void P2_Bats() {
-	
-		P2.score=0;
-		while(execute<15) {
-			int Bat = (int)(Math.random()*7);
-			int Bowl = (int)(Math.random()*7);
-			// B bats
-			
-			if(Bat != Bowl) {
-				P2.score=P2.score+ Bat;
-				System.out.println(P2.Name+" shows "+Bat+" and " + P1.Name +" shows " +Bowl+", "+P2.Name+ " scores "+ P2.score);
-				
-				execute++;
-			}
-			else {
-				System.out.println(P2.Name+" shows "+Bat+" and " + P1.Name +" shows " +Bowl+", "+P2.Name+"  got out scoring "+P2.score+" runs");
-				target = P2.score;
-				break;
-			}
-			
-			
-			if(P2.score>target) {
-				break;
-			}
-	
-			}
-		execute = 0;
-	}
-	
-	
-	
+
 	public void Match(String toss) {
 		
 		
@@ -94,33 +64,31 @@ public class Round {
 		
 		if(toss=="Heads") {
 			
-			P1_Bats();
+			Batting(P1,P2);
 			
 			System.out.println(" ");
 			System.out.println("*****Innings Break*****");
 			System.out.println(" ");
 			
-			P2_Bats();
+			Batting(P2,P1);
 		
 		}
-		
-		
+
 		//If B wins the Toss
 		
 		if(toss=="Tails") {
 			
 			
-			P2_Bats();
+			Batting(P2,P1);
 			
 			System.out.println(" ");
 			System.out.println("*****Innings Break*****");
 			System.out.println(" ");
 			
-			P1_Bats();
+			Batting(P1,P2);
 	
 				
 		}
-		
 		
 		//Printing the round winner
 		if(P1.score>P2.score) {
