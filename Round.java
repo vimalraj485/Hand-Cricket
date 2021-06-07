@@ -1,13 +1,15 @@
 package cricketHand;
 
-import java.lang.Math; 
+import java.lang.Math;
+import java.util.ArrayList; 
 
 public class Round {
 	Player P1 ;
 	Player P2 ;
 	
 	static int roundNo = 0;
-	
+	ArrayList<Integer>P1_wins = new ArrayList<>();
+	ArrayList<Integer>P2_wins = new ArrayList<>();
 
 	public Round(Player P1, Player P2) {
 		this.P1 = P1;
@@ -53,11 +55,10 @@ public class Round {
 		
 		execute = 0;
 	}
-
+	int round = roundno();
+	
 	public void Match(String toss) {
-		
-		
-		int round = roundno();
+
 		System.out.println("-------------Round:"+round+"-------------");
 		
 		// If A wins the Toss 
@@ -90,39 +91,19 @@ public class Round {
 				
 		}
 		
-		//Printing the round winner
-		if(P1.score>P2.score) {
-			System.out.println(" ");
-			
-			System.out.println(P1.Name+ " wins");
-			
-			System.out.println(" ");
-			
-			System.out.println(P1.Name+" is the winner of Round "+ round);
-		}
-		else if(P1.score<P2.score) {
-			System.out.println(" ");
-			
-			System.out.println(P2.Name+" wins");
-			
-			System.out.println(" ");
-			
-			System.out.println(P2.Name+" is the winner of Round "+ round);
-		}
-		else if(P1.score==P2.score) {
-			System.out.println("Round Draws!");
-		}
 
 	}
 	
-	public Player RoundWinner() {
+	public int RoundWinner() {
 		if(P1.score>P2.score) {
-			return P1;
+			return 1;
 		}
 		else if(P1.score<P2.score) {
-			return P2;
+			return 2;
 		}
-		return null;
+		System.out.println("Round Draws!");
+		
+		return 0;
 	}
 	
 	
