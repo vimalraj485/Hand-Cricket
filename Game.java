@@ -2,29 +2,21 @@ package cricketHand;
 
 import java.util.*;
 
-
 public class Game {
 	
+	Player P1 = new Player("A");
+	Player P2 = new Player("B");
+	
+	String toss;
+	
+	ArrayList<Round>rounds = new ArrayList<>();
+	
+	ArrayList<Integer>P1_wins = new ArrayList<>();
+	ArrayList<Integer>P2_wins = new ArrayList<>();
+	
+	
+	public void Toss() {
 
-	public static void main(String[] args) {
-
-		Player P1 = new Player("A");
-		Player P2 = new Player("B");
-		
-		System.out.println("*****WELCOME TO HAND CRICKET*****");
-		System.out.println(" ");
-		
-		System.out.println("*****MATCH STARTS*****");
-		System.out.println(" ");
-		System.out.println(" ");
-		System.out.println(" ");
-		
-		ArrayList<Integer>P1_wins = new ArrayList<>();
-		ArrayList<Integer>P2_wins = new ArrayList<>();
-		
-		String toss;
-		
-		//Toss
 		
 		int b = (int)(Math.random()*2);
 		if(b==1) {
@@ -36,17 +28,18 @@ public class Game {
 			System.out.println("TOSSS WIN BY:-"+P2.Name);
 			System.out.println(P2.Name+" decides to bat first");
 			 toss = "Tails";
-		}	
-		
-		
-		int i=0;
-		
-		while(i<3) {
+		}
+	}
 
-		Round round = new Round(P1,P2);
+	public void roundStarts() {
 		
-	
+		Round round = new Round(P1,P2);
+
 		round.Match(toss);
+		
+		round.RoundWinner();
+		
+		rounds.add(round);
 
 		if(toss=="Heads") {
 			toss = "Tails";
@@ -56,31 +49,36 @@ public class Game {
 		}
 		
 		
-		System.out.println(" ");
-		System.out.println(" ");
-		System.out.println(" ");
-		
-		
-		
-		if(round.RoundWinner()==P1) {
+		if(round.RoundWinner()==1) {
+			
+			System.out.println(" ");
+			
+			System.out.println(P1.Name+ " wins");
+			
+			System.out.println(" ");
+			
+			System.out.println(P1.Name+" is the winner of Round "+round.roundNo);
 			P1_wins.add(0);
+		
 		}
-		else if(round.RoundWinner()==P2) {
+		else if(round.RoundWinner()==2) {
+			System.out.println(" ");
+			
+			System.out.println(P2.Name+" wins");
+			
+			System.out.println(" ");
+			
+			System.out.println(P2.Name+" is the winner of Round "+round.roundNo);
 			P2_wins.add(0);
 		}
 		
-		
-		if(P1_wins.size()>1 || P2_wins.size()>1) {
-			break;
-		}
-		
-		i++;
-		
+		System.out.println(" ");
+		System.out.println(" ");
+		System.out.println(" ");
 
-		}
-		
-		System.out.println();
-		
+	}
+	
+		public void gameDisplay() {
 		if(P1_wins.size()>P2_wins.size()) {
 			System.out.println("*****"+P1.Name +" wins the game*****");
 		}
@@ -91,6 +89,7 @@ public class Game {
 			System.out.println("*****Game Draws!*****");
 		}
 
-	}
+		}
+	
 	
 }
