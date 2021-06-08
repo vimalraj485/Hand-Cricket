@@ -41,13 +41,13 @@ public class Game {
 		
 		round.Match(toss);
 		
-		rounds.add(round);
+		
 		
 		
 		
 		round.RoundWinner();
 		
-		
+		rounds.add(round);
 
 		if(toss=="Heads") {
 			toss = "Tails";
