@@ -3,22 +3,19 @@ package cricketHand;
 import java.util.*;
 
 public class Game {
-	
-	Player P1 = new Player("A");
-	Player P2 = new Player("B");
-	
+
 	String toss;
 	
-	ArrayList<Round>rounds = new ArrayList<>();
-	
-	
+	ArrayList<Round>rounds = new ArrayList<>(3);	
+	Player P1 = new Player("A");
+	Player P2 = new Player("B");
 	
 	ArrayList<Integer>P1_wins = new ArrayList<>();
 	ArrayList<Integer>P2_wins = new ArrayList<>();
 	
+
 	
 	public void Toss() {
-
 		
 		int b = (int)(Math.random()*2);
 		if(b==1) {
@@ -34,20 +31,15 @@ public class Game {
 	}
 
 	public void roundStarts() {
+
 		
 		Round round = new Round(P1,P2);
-		
-		
-		
+
 		round.Match(toss);
-		
-		
-		
-		
-		
+
 		round.RoundWinner();
 		
-		rounds.add(round);
+		
 
 		if(toss=="Heads") {
 			toss = "Tails";
@@ -84,11 +76,16 @@ public class Game {
 		System.out.println(" ");
 		System.out.println(" ");
 		
+		rounds.add(round);
 		
 
 	}
 	
 		public void gameDisplay() {
+		
+		Player P1 = new Player("A");
+		Player P2 = new Player("B");
+			
 		if(P1_wins.size()>P2_wins.size()) {
 			System.out.println("*****"+P1.Name +" wins the game*****");
 		}
