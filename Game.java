@@ -71,6 +71,9 @@ public class Game {
 			System.out.println(P2.Name+" is the winner of Round "+round.roundNo);
 			P2_wins.add(0);
 		}
+		else{
+			System.out.println("Round Draws");
+		}		
 		
 		System.out.println(" ");
 		System.out.println(" ");
