@@ -9,7 +9,10 @@ public class Game {
 	
 	String toss;
 	
-	ArrayList<Round>rounds = new ArrayList<>();
+	ArrayList<Round>rounds = new ArrayList<>(3);
+	
+	ArrayList<Integer>P1Scores = new ArrayList<>();
+	ArrayList<Integer>P2Scores = new ArrayList<>();
 	
 	ArrayList<Integer>P1_wins = new ArrayList<>();
 	ArrayList<Integer>P2_wins = new ArrayList<>();
@@ -34,12 +37,19 @@ public class Game {
 	public void roundStarts() {
 		
 		Round round = new Round(P1,P2);
-
+		
+		
+		
 		round.Match(toss);
+		
+		rounds.add(round);
+		
+		P1Scores.add(round.P1.score);
+		P2Scores.add(round.P2.score);
 		
 		round.RoundWinner();
 		
-		rounds.add(round);
+		
 
 		if(toss=="Heads") {
 			toss = "Tails";
@@ -75,6 +85,8 @@ public class Game {
 		System.out.println(" ");
 		System.out.println(" ");
 		System.out.println(" ");
+		
+		
 
 	}
 	
