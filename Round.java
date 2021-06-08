@@ -128,7 +128,7 @@ public class Round {
 		else if(P1Score<P2Score) {
 			return 2;
 		}
-		System.out.println("Round Draws!");
+		
 		return 0;
 	}
 	
