@@ -9,10 +9,9 @@ public class Game {
 	
 	String toss;
 	
-	ArrayList<Round>rounds = new ArrayList<>(3);
+	ArrayList<Round>rounds = new ArrayList<>();
 	
-	ArrayList<Integer>P1Scores = new ArrayList<>();
-	ArrayList<Integer>P2Scores = new ArrayList<>();
+	
 	
 	ArrayList<Integer>P1_wins = new ArrayList<>();
 	ArrayList<Integer>P2_wins = new ArrayList<>();
@@ -44,8 +43,7 @@ public class Game {
 		
 		rounds.add(round);
 		
-		P1Scores.add(round.P1.score);
-		P2Scores.add(round.P2.score);
+		
 		
 		round.RoundWinner();
 		
