@@ -1,8 +1,5 @@
 package cricketHand;
-
-
-
-public class Controller {
+ class Controller {
 	public static void main(String[] args) {
 
 		System.out.println("*****WELCOME TO HAND CRICKET*****");
@@ -15,12 +12,22 @@ public class Controller {
 		game.Toss();
 		int i=0;
 		while(i<3) {
+		
 		game.roundStarts();
 		if(game.P1_wins.size()>1 || game.P2_wins.size()>1) {
 			break;
 		}
 		}
+		
 		game.gameDisplay();
+		
+		
+
+
+		
+		
+	
+	
 
 	}
 
