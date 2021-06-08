@@ -28,8 +28,8 @@ public class Round {
 	int execute = 0;
 	int target = 91;
 
-	public void Batting(Player P1, Player P2) {
-		P1.score=0;
+	public void Batting(Player batting, Player bowling) {
+		batting.score=0;
 		
 		while(execute<15) {
 			int Bat = (int)(Math.random()*7);
@@ -37,17 +37,17 @@ public class Round {
 			// A bat firsts
 			
 			if(Bat != Bowl) {
-				P1.score = P1.score + Bat;
-				System.out.println(P1.Name + " shows "+Bat+" and "+P2.Name+" shows " +Bowl+", "+ P1.Name +" scores "+P1.score);
+				batting.score = batting.score + Bat;
+				System.out.println(batting.Name + " shows "+Bat+" and "+bowling.Name+" shows " +Bowl+", "+ batting.Name +" scores "+batting.score);
 				
 				execute++;
 			}
 			else {
-				System.out.println(P1.Name +" shows "+Bat+" and "+P2.Name +" shows " +Bowl+", "+P1.Name+"  got out  scoring "+P1.score+" runs");
-				target = P1.score;
+				System.out.println(batting.Name +" shows "+Bat+" and "+bowling.Name +" shows " +Bowl+", "+batting.Name+"  got out  scoring "+batting.score+" runs");
+				target = batting.score;
 				break;
 			}
-			if(P1.score>target) {
+			if(batting.score>target) {
 				break;
 			}
 
